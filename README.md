@@ -12,7 +12,7 @@ Two gems are required to run this program:
 
 -----------------------------------------------------------------------------------------------
 
-For now (until I add code to capture), the following ***bold*** values need to be changed:
+(For now), the following values need to be changed:
 
 -----------------------------------------------------------------------------------------------
 
