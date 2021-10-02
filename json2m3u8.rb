@@ -26,7 +26,6 @@ channel_num = 1
 group_title = 0
 
 m3u8_file = File.open("live.m3u8", "w:UTF-8")
-
 m3u8_file.puts "#EXTM3U"
 
 stdin.each do |user_input|
