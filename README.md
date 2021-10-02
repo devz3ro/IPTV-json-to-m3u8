@@ -12,7 +12,7 @@ Two gems are required to run this program:
 
 -----------------------------------------------------------------------------------------------
 
-(For now), the following values need to be changed:
+(For now), the following values need to be changed to your own (search & replace):
 
 -----------------------------------------------------------------------------------------------
 
