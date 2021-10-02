@@ -4,13 +4,24 @@ This program was written using Ruby v3 and tested both on Fedora 34 & macOS Cata
 
 Two gems are required to run this program:
 
+-----------------------------------------------------------------------------------------------
+
 ***gem install json***
 
 ***gem install down***
 
-For now, the following ***bold*** values need to be changed:
+-----------------------------------------------------------------------------------------------
 
-http://***mystream.site:31337***/player_api.php?username=***USERNAMEHERE***&password=***PASSWORDHERE***&action=get_live_streams
-http://***mystream.site:31337***/player_api.php?username=***USERNAMEHERE***&password=***PASSWORDHERE***&action=get_live_categories
+For now (until I add code to capture), the following ***bold*** values need to be changed:
 
-http://***mystream.site:31337***/***USERNAMEHERE***/***PASSWORDHERE***/
+-----------------------------------------------------------------------------------------------
+
+***mystream.site:31337***
+***USERNAMEHERE***
+***PASSWORDHERE***
+
+-----------------------------------------------------------------------------------------------
+
+Usage: ruby json2m3u8.rb
+
+The file "live.m3u8" will be created after you select the available groups.
