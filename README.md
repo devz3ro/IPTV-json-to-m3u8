@@ -4,9 +4,9 @@ This program was written using Ruby v3 and tested both on Fedora 34 & macOS Cata
 
 Two gems are required to run this program:
 
-gem install json
+***gem install json***
 
-gem install down
+***gem install down***
 
 For now, the following ***bold*** values need to be changed:
 
