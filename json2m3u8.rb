@@ -1,9 +1,10 @@
 #!/usr/local/Cellar/ruby/3.0.2/bin/ruby
 require 'rubygems'
 require 'json'
+require 'down'
 
-system 'wget -O streams.json "http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_streams"'
-system 'wget -O categories.json "http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_categories"'
+Down.download("http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_streams", destination: "./streams.json")
+Down.download("http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_categories", destination: "./categories.json")
 
 stream_file = File.read('streams.json')
 stream_data = JSON.parse(stream_file)
