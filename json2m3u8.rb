@@ -1,14 +1,17 @@
 #!/usr/local/Cellar/ruby/3.0.2/bin/ruby
+
+require 'net/http'
 require 'json'
-require 'down'
 
-Down.download("http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_streams", destination: "./streams.json")
-Down.download("http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_categories", destination: "./categories.json")
+stream_url = 'http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_streams'
+stream_data = URI(stream_url)
+stream_response = Net::HTTP.get(stream_data)
+stream_data = JSON.parse(stream_response)
 
-stream_file = File.read('streams.json')
-stream_data = JSON.parse(stream_file)
-category_file = File.read('categories.json')
-category_data = JSON.parse(category_file)
+category_url = 'http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_categories'
+category_data = URI(category_url)
+category_response = Net::HTTP.get(category_data)
+category_data = JSON.parse(category_response)
 
 category_data.sort_by! { |name| 
 	name["category_name"]
