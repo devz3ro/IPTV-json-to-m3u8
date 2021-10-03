@@ -1,14 +1,12 @@
 # IPTV-json-to-m3u8
 
-This program was written using Ruby v3 and tested both on Fedora 34 & macOS Catalina & Big Sur.
+This program was written using Ruby v3 and tested on Fedora 34 + macOS Catalina & Big Sur.
 
-Two gems are required to run this program:
+One gem is required to run this program:
 
 -----------------------------------------------------------------------------------------------
 
 ***gem install json***
-
-***gem install down***
 
 -----------------------------------------------------------------------------------------------
 
