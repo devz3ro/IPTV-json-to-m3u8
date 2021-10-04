@@ -1,14 +1,23 @@
-#!/usr/local/Cellar/ruby/3.0.2/bin/ruby
+#!/home/devz3ro/.rvm/rubies/ruby-3.0.2/bin/ruby
 
 require 'net/http'
 require 'json'
 
-stream_url = 'http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_streams'
+puts "\nEnter your IPTV domain and port number (Example: mystream.site:31337)"
+stream_domain = gets.chomp
+
+puts "\nEnter your IPTV username:"
+stream_username = gets.chomp
+
+puts "\nEnter your IPTV password:"
+stream_password = gets.chomp
+
+stream_url = "http://#{stream_domain}/player_api.php?username=#{stream_username}&password=#{stream_password}&action=get_live_streams"
 stream_data = URI(stream_url)
 stream_response = Net::HTTP.get(stream_data)
 stream_data = JSON.parse(stream_response)
 
-category_url = 'http://mystream.site:31337/player_api.php?username=USERNAMEHERE&password=PASSWORDHERE&action=get_live_categories'
+category_url = "http://#{stream_domain}/player_api.php?username=#{stream_username}&password=#{stream_password}&action=get_live_categories"
 category_data = URI(category_url)
 category_response = Net::HTTP.get(category_data)
 category_data = JSON.parse(category_response)
@@ -17,11 +26,13 @@ category_data.sort_by! { |name|
 	name["category_name"]
 }
 
+puts ""
+
 category_data.each { |category_print|
 	puts category_print["category_name"] + " = " + category_print["category_id"]
 }
 
-puts "\nPlease enter your category number(s) separated by spaces: "
+puts "\nEnter your desired category number(s) separated by spaces: \n"
 
 input = gets.chomp
 stdin = input.split(" ")
@@ -49,10 +60,10 @@ stdin.each do |user_input|
 			m3u8_file.print "tvg-name=\"" + channel["name"] + "\" "
 			m3u8_file.print "tvg-logo=\"" + channel["stream_icon"] + "\" "
 			m3u8_file.print "group-title=\"#{group_title}\"," + channel["name"] + "\n"
-			m3u8_file.print "http://mystream.site:31337/USERNAMEHERE/PASSWORDHERE/" + channel["stream_id"].to_s + "\n"
+                        m3u8_file.print "http://#{stream_domain}/#{stream_username}/#{stream_password}/" + channel["stream_id"].to_s + "\n"
 			channel_num += 1
 		end
 	end
 end
-
+puts "\nlive.m3u8 created."
 m3u8_file.close
