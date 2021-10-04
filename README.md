@@ -12,4 +12,4 @@ One gem is required to run this program:
 
 Usage: ruby json2m3u8.rb
 
-The file "live.m3u8" will be created after you select the available groups.
+The file "live.m3u8" will be created after you select from the available groups.
