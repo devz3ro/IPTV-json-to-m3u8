@@ -52,7 +52,7 @@ stdin.each do |user_input|
 		if channel["category_id"] == "#{user_input}"
 			m3u8_file.print "#EXTINF:-1 channel-id=\"#{channel_num}\" "
 			epg_chan = channel["epg_channel_id"].to_s
-			unless epg_chan == ""
+                        unless epg_chan.empty?
 				m3u8_file.print "tvg-id=\"" + epg_chan + "\" "
 			else
 				m3u8_file.print "tvg-id=\"null\"" + " "
