@@ -4,13 +4,13 @@ require 'net/http'
 require 'json'
 
 puts "\nEnter your IPTV domain and port number (Example: mystream.site:31337)"
-stream_domain = gets.chomp
+stream_domain = gets.strip
 
 puts "\nEnter your IPTV username:"
-stream_username = gets.chomp
+stream_username = gets.strip
 
 puts "\nEnter your IPTV password:"
-stream_password = gets.chomp
+stream_password = gets.strip
 
 stream_url = "http://#{stream_domain}/player_api.php?username=#{stream_username}&password=#{stream_password}&action=get_live_streams"
 stream_data = URI(stream_url)
