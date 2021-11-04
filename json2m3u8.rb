@@ -34,7 +34,7 @@ category_data.each { |category_print|
 
 puts "\nEnter your desired category number(s) separated by spaces: \n"
 
-input = gets.chomp
+input = gets.strip
 stdin = input.split(" ")
 channel_num = 1
 group_title = 0
