@@ -26,7 +26,7 @@ category_data.sort_by! { |name|
 	name["category_name"]
 }
 
-puts ""
+puts
 
 category_data.each { |category_print|
 	puts category_print["category_name"] + " = " + category_print["category_id"]
