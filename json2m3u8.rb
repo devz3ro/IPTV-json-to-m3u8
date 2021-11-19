@@ -1,4 +1,4 @@
-#!/usr/local/Cellar/ruby/3.0.2/bin/ruby
+#!/usr/local/bin/ruby
 require 'net/http'
 require 'json'
 
