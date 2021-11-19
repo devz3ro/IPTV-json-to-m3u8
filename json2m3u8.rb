@@ -65,5 +65,5 @@ stdin.each do |user_input|
 		end
 	end
 end
-puts "\nlive.m3u8 created."
 m3u8_file.close
+puts "\nlive.m3u8 created."
